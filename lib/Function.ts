@@ -1,7 +1,5 @@
 /* tslint:disable:ban-types */
 /* tslint:disable:interface-name */
-/* tslint:disable:no-console */
-/* tslint:disable:no-eval */
 /* tslint:disable:trailing-comma */
 
 interface Function {
