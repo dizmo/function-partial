@@ -50,7 +50,7 @@ describe("partial", function () {
         var args = {
             zero: 0
         };
-        chai_1.expect([lib_1.partial(fn, args)()]).to.have.members([undefined]);
+        chai_1.expect([lib_1.partial(fn, args)()]).to.have.deep.members([undefined]);
     });
     it("should preserve bounded `this` correctly", function () {
         var fn = function fn(zero) {

@@ -51,7 +51,7 @@ describe("partial", () => {
         };
         expect([
             partial(fn, args)()
-        ]).to.have.members([
+        ]).to.have.deep.members([
             undefined
         ]);
     });
