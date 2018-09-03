@@ -41,8 +41,8 @@ if (global[partials] === undefined) {
     global[partials] = {};
 }
 function next() {
-    var pow = Math.pow(36, 7);
+    var pow = Math.pow(36, 8);
     var mul = 36 * pow;
-    return Math.floor(mul - pow * Math.random()).toString(36);
+    return Math.floor(mul - pow * Math.random()).toString(36).slice(1);
 }
 //# sourceMappingURL=Function.js.map

@@ -62,8 +62,9 @@ if (global[partials] === undefined) {
 }
 
 function next() {
-    const pow = Math.pow(36, 7);
+    const pow = Math.pow(36, 8);
     const mul = 36 * pow;
 
-    return Math.floor(mul - pow * Math.random()).toString(36);
+    return Math.floor(mul - pow * Math.random())
+               .toString(36).slice(1);
 }
