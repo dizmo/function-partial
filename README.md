@@ -3,15 +3,15 @@
 [![Coverage Status](https://coveralls.io/repos/github/dizmo/functions-partial/badge.svg?branch=master)](https://coveralls.io/github/dizmo/functions-partial?branch=master)
 
 # @dizmo/functions-partial
-Allows to bind *any* argument using their names rather their positions. This approach is more flexible if the initial arguments are to be left unbound. For example, from a function `fn`
+Allows to bind *any* argument of a function using their names rather than their positions. This approach is more flexible if the initial arguments are to be left unbound. For example, from a function `fn`
 ```javascript
-fn(arg{0}, arg{1}, .., arg{n-3}, arg{n-2}, arg{n-1})
+fn(arg_0, arg_1, .., arg_[n-3], arg_[n-2], arg_[n-1])
 ```
-we can create a new function `gn` which requires all arguments but the last and the *third last* parameter by applying the
+we can create a new function `gn`, which requires all arguments but the last and the *third last* parameter by applying the
 ```javascript
-gn = fn.partial({arg{n-3}:val{n-3}, arg{n-1}:val{n-1}})
+gn = fn.partial({arg_[n-3]: val_[n-3}, arg_[n-1]: val_[n-1]})
 ```
-partial operation. The invocation of `gn` would be like `gn(val{0}, val{1}, .., val{n-2})`. Notice that the relative position of the *unbound* arguments is left intact.
+partial operation. The invocation of `gn` would look like `gn(val_0, val_1, .., val_[n-2])`. Notice that the relative position of the *unbound* arguments is left intact.
 
 ## Usage
 ### Install
