@@ -4,10 +4,7 @@
     "email": "hasan.karahan@blackhan.com",
     "url": "https://github.com/hsk81"
   },
-  "dependencies": {
-    "ts-node": "^7.0.1",
-    "uuid": "^3.3.2"
-  },
+  "dependencies": {},
   "description": "partial functions",
   "devDependencies": {
     "@types/chai": "^4.1.4",
