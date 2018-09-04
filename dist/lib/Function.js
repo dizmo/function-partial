@@ -27,8 +27,8 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 Function.prototype.partial = function () {
     var args = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
-    var id = uid();
-    var fn = set(id, this);
+    var id = random();
+    var fn = global(id, this);
     var fn_string = fn.toString();
     var lhs_index = fn_string.indexOf("(") + 1;
     var rhs_index = fn_string.indexOf(")");
@@ -36,20 +36,20 @@ Function.prototype.partial = function () {
     var arg_names = all_names.filter(function (n) {
         return n in args === false;
     });
-    return Function.apply(undefined, _toConsumableArray(arg_names).concat(["\"use strict\";\n        const all_names = " + JSON.stringify(all_names) + ";\n        const arg_names = " + JSON.stringify(arg_names) + ";\n        let args = " + JSON.stringify(args) + ";\n        for (const i in arguments) {\n            if (arguments.hasOwnProperty(i)) {\n                args[arg_names[i]] = arguments[i];\n            }\n        }\n        return global[\"_partials:" + gid + "\"][\"" + id + "\"]\n            .apply(this, all_names.map(n => args[n]));\n    "]));
+    return Function.apply(undefined, _toConsumableArray(arg_names).concat(["\"use strict\";\n        const all_names = " + JSON.stringify(all_names) + ";\n        const arg_names = " + JSON.stringify(arg_names) + ";\n        let args = " + JSON.stringify(args) + ";\n        for (const i in arguments) {\n            if (arguments.hasOwnProperty(i)) {\n                args[arg_names[i]] = arguments[i];\n            }\n        }\n        return global[\":partials-" + gid + "\"][\"" + id + "\"]\n            .apply(this, all_names.map(n => args[n]));\n    "]));
 };
-var uid = function uid() {
+var random = function random() {
     return Math.floor(101559956668416 - 2821109907456 * Math.random()).toString(36).slice(1);
 };
-var set = function set(key, value) {
+var global = function global(key, value) {
     var g = Function("return global")();
-    if (g["_partials:" + gid] === undefined) {
-        g["_partials:" + gid] = {};
+    if (g[":partials-" + gid] === undefined) {
+        g[":partials-" + gid] = {};
     }
     if (value !== undefined) {
-        g["_partials:" + gid][key] = value;
+        g[":partials-" + gid][key] = value;
     }
-    return g["_partials:" + gid][key];
+    return g[":partials-" + gid][key];
 };
-var gid = uid();
+var gid = random();
 //# sourceMappingURL=Function.js.map

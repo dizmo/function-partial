@@ -28,8 +28,8 @@ interface Function {
 Function.prototype.partial = function(
     this: any, args: any = {}
 ): Function {
-    const id = uid();
-    const fn = set(id, this);
+    const id = random();
+    const fn = global(id, this);
     const fn_string = fn.toString();
     const lhs_index = fn_string.indexOf("(") + 1;
     const rhs_index = fn_string.indexOf(")");
@@ -48,26 +48,26 @@ Function.prototype.partial = function(
                 args[arg_names[i]] = arguments[i];
             }
         }
-        return global["_partials:${gid}"]["${id}"]
+        return global[":partials-${gid}"]["${id}"]
             .apply(this, all_names.map(n => args[n]));
     `);
 };
 
-const uid = () => {
+const random = (): string => {
     return Math.floor(
         101559956668416 - 2821109907456 * Math.random()
     ).toString(36).slice(1);
 };
 
-const set = (key: string, value?: any) => {
+const global = (key: string, value?: any): any => {
     const g = Function("return global")();
-    if (g[`_partials:${gid}`] === undefined) {
-        g[`_partials:${gid}`] = {};
+    if (g[`:partials-${gid}`] === undefined) {
+        g[`:partials-${gid}`] = {};
     }
     if (value !== undefined) {
-        g[`_partials:${gid}`][key] = value;
+        g[`:partials-${gid}`][key] = value;
     }
-    return g[`_partials:${gid}`][key];
+    return g[`:partials-${gid}`][key];
 };
 
-const gid = uid();
+const gid = random();
