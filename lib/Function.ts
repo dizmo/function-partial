@@ -5,7 +5,7 @@
 interface Function {
     partial: Function;
 }
-
+(() => {
 /**
  * Allows  to  bind  *any* argument  using  their names  rather their
  * positions. This approach is more flexible if the initial arguments
@@ -71,3 +71,4 @@ const global = (key: string, value?: any): any => {
 };
 
 const gid = random();
+})();

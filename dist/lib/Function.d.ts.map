@@ -1,1 +1,1 @@
-{"version":3,"file":"Function.d.ts","sourceRoot":"","sources":["../../lib/Function.ts"],"names":[],"mappings":"AAIA,UAAU,QAAQ;IACd,OAAO,EAAE,QAAQ,CAAC;CACrB;AAiDD,QAAA,MAAM,MAAM,cAIX,CAAC;AAEF,QAAA,MAAM,MAAM,mCASX,CAAC;AAEF,QAAA,MAAM,GAAG,QAAW,CAAC"}
+{"version":3,"file":"Function.d.ts","sourceRoot":"","sources":["../../lib/Function.ts"],"names":[],"mappings":"AAIA,UAAU,QAAQ;IACd,OAAO,EAAE,QAAQ,CAAC;CACrB"}
