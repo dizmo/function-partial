@@ -1,3 +1,9 @@
 {
-  "@dizmo/generator-module": {}
+  "@dizmo/generator-module": {
+    "promptValues": {
+      "personName": "Hasan Karahan",
+      "personEmail": "hkarahan@dizmo.com",
+      "personUrl": "https://github.com/hsk81"
+    }
+  }
 }
