@@ -1,7 +1,10 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", { value: true });
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 /* tslint:disable:ban-types interface-name */
+
 require("./Function");
 /**
  * Allows  to  bind  *any* argument  using  their names  rather their
@@ -19,9 +22,12 @@ require("./Function");
  * val_0, val_1, .., val_[n-2])`.  Notice that the relative positions
  * of the *unbound* arguments is left intact.
  */
+
+
 function partial(fn, args) {
   return fn.partial(args);
 }
+
 exports.partial = partial;
-exports.default = partial;
+exports["default"] = partial;
 //# sourceMappingURL=index.js.map
