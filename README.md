@@ -29,7 +29,7 @@ npm install @dizmo/functions-partial --save
 ### Require
 
 ```javascript
-let lib = require('@dizmo/functions-partial');
+const { partial } = require('@dizmo/functions-partial');
 ```
 
 ### Examples
