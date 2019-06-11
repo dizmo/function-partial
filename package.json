@@ -34,7 +34,7 @@
   "name": "@dizmo/functions-partial",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git@github.com:dizmo/functions-partial.git"
   },
   "scripts": {
     "build": "node ./cli/run-build.js",
