@@ -1,7 +1,3 @@
-/* tslint:disable:ban-types */
-/* tslint:disable:interface-name */
-/* tslint:disable:trailing-comma */
-
 interface Function {
     partial: Function;
 }
@@ -33,12 +29,10 @@ Function.prototype.partial = function(
     const fn_string = fn.toString();
     const lhs_index = fn_string.indexOf("(") + 1;
     const rhs_index = fn_string.indexOf(")");
-
     const all_names = fn_string
         .slice(lhs_index, rhs_index).match(/([^\s,]+)/g);
     const arg_names = all_names
         .filter((n: string) => n in args === false);
-
     return Function(...arg_names, `"use strict";
         const all_names = ${JSON.stringify(all_names)};
         const arg_names = ${JSON.stringify(arg_names)};
@@ -52,13 +46,11 @@ Function.prototype.partial = function(
             .apply(this, all_names.map(n => args[n]));
     `);
 };
-
 const random = (): string => {
     return Math.floor(
         101559956668416 - 2821109907456 * Math.random()
     ).toString(36).slice(1);
 };
-
 const global = (key: string, value?: any): any => {
     const g = Function("return global")();
     if (g[`:partials-${gid}`] === undefined) {
@@ -69,6 +61,5 @@ const global = (key: string, value?: any): any => {
     }
     return g[`:partials-${gid}`][key];
 };
-
 const gid = random();
 })();

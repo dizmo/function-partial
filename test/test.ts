@@ -1,4 +1,3 @@
-/* tslint:disable:trailing-comma no-console */
 import { expect } from "chai";
 import { partial } from "../lib";
 

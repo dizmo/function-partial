@@ -1,4 +1,4 @@
-/* tslint:disable:ban-types interface-name */
+/* eslint @typescript-eslint/explicit-module-boundary-types: [off] */
 import "./Function";
 
 /**
@@ -20,5 +20,4 @@ import "./Function";
 export function partial(fn: Function, args: any): Function {
     return fn.partial(args);
 }
-
 export default partial;
