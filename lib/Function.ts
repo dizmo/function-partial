@@ -1,6 +1,7 @@
-interface Function {
-    partial: Function;
-}
+/* eslint @typescript-eslint/no-var-requires: [off] */
+const randomBytes = require('randombytes');
+interface Function { partial: Function; }
+
 (() => {
 /**
  * Allows  to  bind  *any* argument  using  their names  rather their
@@ -47,9 +48,7 @@ Function.prototype.partial = function(
     `);
 };
 const random = (): string => {
-    return Math.floor(
-        101559956668416 - 2821109907456 * Math.random()
-    ).toString(36).slice(1);
+    return randomBytes(16).toString('hex');
 };
 const global = (key: string, value?: any): any => {
     const g = Function("return global")();
