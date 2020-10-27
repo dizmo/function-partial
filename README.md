@@ -1,5 +1,5 @@
 [![NPM version](https://badge.fury.io/js/%40dizmo%2Ffunctions-partial.svg)](https://npmjs.org/package/@dizmo/functions-partial)
-[![Build Status](https://travis-ci.org/dizmo/functions-partial.svg?branch=master)](https://travis-ci.org/dizmo/functions-partial)
+[![Build Status](https://travis-ci.com/dizmo/functions-partial.svg?branch=master)](https://travis-ci.com/dizmo/functions-partial)
 [![Coverage Status](https://coveralls.io/repos/github/dizmo/functions-partial/badge.svg?branch=master)](https://coveralls.io/github/dizmo/functions-partial?branch=master)
 
 # @dizmo/functions-partial
