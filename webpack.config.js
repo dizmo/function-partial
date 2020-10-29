@@ -7,5 +7,10 @@ module.exports = {
             use: ['source-map-loader'],
             enforce: 'pre'
         }]
+    },
+    resolve: {
+        fallback: {
+            'buffer': require.resolve('buffer/')
+        }
     }
 };
