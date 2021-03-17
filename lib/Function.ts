@@ -1,7 +1,6 @@
 /* eslint @typescript-eslint/no-var-requires: [off] */
 interface Function { partial: Function; }
 (() => {
-    const randomBytes = require('randombytes');
     /**
      * Allows  to  bind  *any* argument  using  their names  rather their
      * positions. This approach is more flexible if the initial arguments
@@ -42,22 +41,28 @@ interface Function { partial: Function; }
                     args[arg_names[i]] = arguments[i];
                 }
             }
-            return global[":partials-${gid}"]["${id}"]
+            return global[":partials-${gid()}"]["${id}"]
                 .apply(this, all_names.map(n => args[n]));
         `);
     };
     const random = (): string => {
-        return randomBytes(16).toString('hex');
+        return require('randombytes')(16).toString('hex');
     };
     const global = (key: string, value?: any): any => {
         const g = Function("return global")();
-        if (g[`:partials-${gid}`] === undefined) {
-            g[`:partials-${gid}`] = {};
+        if (g[`:partials-${gid()}`] === undefined) {
+            g[`:partials-${gid()}`] = {};
         }
         if (value !== undefined) {
-            g[`:partials-${gid}`][key] = value;
+            g[`:partials-${gid()}`][key] = value;
         }
-        return g[`:partials-${gid}`][key];
+        return g[`:partials-${gid()}`][key];
     };
-    const gid = random();
+    const gid = function () {
+        const prototype = Function.prototype as any;
+        if (prototype._gid === undefined) {
+            prototype._gid = random();
+        }
+        return prototype._gid;
+    };
 })();
